@@ -1,13 +1,16 @@
 import axios from "axios";
 
 export const getTodos = async () => {
-  //TO_MODIFY
+  const response = await axios.get("http://localhost:4001/todos");
+  return response;
 };
 
 export const createTodo = async (formData) => {
-  //TO_MODIFY
+  const response = await axios.post("http://localhost:4001/todos", formData);
+  return response;
 };
 
 export const deleteTodo = async (todoId) => {
-  //TO_MODIFY
+  const response = await axios.delete(`http://localhost:4001/todos/${todoId}`);
+  return response; 
 };

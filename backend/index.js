@@ -26,8 +26,8 @@ db.schema
     if (!exists) {
       return db.schema.createTable("todos", (table) => {
         table.increments("id");
-        table.string("title");
-        table.boolean("completed");
+        table.string("name");
+        table.string("description");
       });
     }
   })
@@ -46,9 +46,9 @@ app.get("/todos", async (req, res) => {
 });
 
 app.post("/todos", async (req, res) => {
-  const { title, completed } = req.body;
+  const { name, description } = req.body;
   try {
-    const todo = await db.insert({ title, completed }).into("todos");
+    const todo = await db.insert({ name, description }).into("todos");
     res.json(todo);
   } catch (err) {
     console.error(err);
