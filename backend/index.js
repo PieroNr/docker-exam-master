@@ -31,9 +31,6 @@ db.schema
       });
     }
   })
-  .catch((err) => {
-    console.error(err);
-  });
 
 app.get("/todos", async (req, res) => {
   try {
